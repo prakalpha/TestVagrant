@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="TestExecution" duration-ms="40849" started-at="2022-05-19T19:35:02 IST" finished-at="2022-05-19T19:35:42 IST">
+  <suite name="Default suite" duration-ms="27727" started-at="2022-05-19T21:19:23 IST" finished-at="2022-05-19T21:19:51 IST">
     <groups>
     </groups>
-    <test name="Test Demo" duration-ms="40849" started-at="2022-05-19T19:35:02 IST" finished-at="2022-05-19T19:35:42 IST">
+    <test name="Default test" duration-ms="27727" started-at="2022-05-19T21:19:23 IST" finished-at="2022-05-19T21:19:51 IST">
       <class name="com.framework.qa.testcases.ValidateSearchPageTestCases">
-        <test-method status="PASS" signature="initializeDriver()[pri:0, instance:com.framework.qa.testcases.ValidateSearchPageTestCases@37271612]" name="initializeDriver" is-config="true" duration-ms="18020" started-at="2022-05-19T19:35:02 IST" finished-at="2022-05-19T19:35:20 IST">
+        <test-method status="PASS" signature="initializeDriver()[pri:0, instance:com.framework.qa.testcases.ValidateSearchPageTestCases@27808f31]" name="initializeDriver" is-config="true" duration-ms="14127" started-at="2022-05-19T21:19:23 IST" finished-at="2022-05-19T21:19:37 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeDriver -->
-        <test-method status="PASS" signature="validateMovieReleaseDateAndCountry()[pri:1, instance:com.framework.qa.testcases.ValidateSearchPageTestCases@37271612]" name="validateMovieReleaseDateAndCountry" duration-ms="21150" started-at="2022-05-19T19:35:20 IST" finished-at="2022-05-19T19:35:41 IST">
+        <test-method status="PASS" signature="validateMovieReleaseDateAndCountry()[pri:1, instance:com.framework.qa.testcases.ValidateSearchPageTestCases@27808f31]" name="validateMovieReleaseDateAndCountry" duration-ms="12383" started-at="2022-05-19T21:19:37 IST" finished-at="2022-05-19T21:19:50 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateMovieReleaseDateAndCountry -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.framework.qa.testcases.ValidateSearchPageTestCases@37271612]" name="closeBrowser" is-config="true" duration-ms="1596" started-at="2022-05-19T19:35:41 IST" finished-at="2022-05-19T19:35:42 IST">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.framework.qa.testcases.ValidateSearchPageTestCases@27808f31]" name="closeBrowser" is-config="true" duration-ms="1169" started-at="2022-05-19T21:19:50 IST" finished-at="2022-05-19T21:19:51 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
       </class> <!-- com.framework.qa.testcases.ValidateSearchPageTestCases -->
-    </test> <!-- Test Demo -->
-  </suite> <!-- TestExecution -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

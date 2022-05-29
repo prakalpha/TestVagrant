@@ -2,5 +2,6 @@ C:\Users\praks1\eclipse-workspace\TestVagrant\src\main\java\com\framework\qa\uti
 C:\Users\praks1\eclipse-workspace\TestVagrant\src\main\java\com\framework\qa\baseTest\BaseTest.java
 C:\Users\praks1\eclipse-workspace\TestVagrant\src\main\java\com\framework\qa\pages\SearchPage.java
 C:\Users\praks1\eclipse-workspace\TestVagrant\src\main\java\com\framework\qa\utils\Constants.java
-C:\Users\praks1\eclipse-workspace\TestVagrant\src\main\java\com\framework\qa\basepage\BasePage.java
+C:\Users\praks1\eclipse-workspace\TestVagrant\src\main\java\com\framework\qa\utils\DriverFactory.java
+C:\Users\praks1\eclipse-workspace\TestVagrant\src\main\java\com\framework\qa\basePage\BasePage.java
 C:\Users\praks1\eclipse-workspace\TestVagrant\src\main\java\com\framework\qa\utils\ReportUtils.java

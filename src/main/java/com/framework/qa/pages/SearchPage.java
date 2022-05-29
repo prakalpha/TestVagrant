@@ -1,34 +1,37 @@
 package com.framework.qa.pages;
 
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.framework.qa.basepage.BasePage;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.framework.qa.basePage.BasePage;
 import com.framework.qa.utils.PropUtils;
 
 public class SearchPage extends BasePage {
 	@FindBy(xpath = "//input[@id='suggestion-search']")
-	public WebElement searchBarInputTxtBox;
+	private WebElement searchBarInputTxtBox;
 	@FindBy(xpath = "//button[@id='suggestion-search-button']")
-	public WebElement btnToSearch;
+	private WebElement btnToSearch;
 	@FindBy(xpath = "//li[@id='react-autowhatever-1--item-1']")
-	public WebElement searchResult;
+	private WebElement searchResult;
 	@FindBy(xpath = "//h3[contains(text(),'Details')]")
-	public WebElement detailsHeaderText;
+	private WebElement detailsHeaderText;
 	@FindBy(xpath = "//div[@data-testid='title-details-section']//li[@data-testid='title-details-releasedate']/descendant::a[2]")
-	public WebElement releaseData;
+	private WebElement releaseData;
 	@FindBy(xpath = "//div[@data-testid='title-details-section']//li[@data-testid='title-details-origin']/descendant::a")
-	public WebElement country;
+	private WebElement country;
 	@FindBy(xpath = "//input[@id='searchInput']")
-	public WebElement wikiSearchInput;
+	private WebElement wikiSearchInput;
 	@FindBy(xpath = "//div[contains(text(),'Release date')]/following::li[1]")
-	public WebElement wikiReleaseDate;
+	private WebElement wikiReleaseDate;
 	@FindBy(xpath = "//td[@class='infobox-data'])[12]")
-	public WebElement wikiCountry;
+	private WebElement wikiCountry;
 
-	public SearchPage(WebDriver driver) {
-		super(driver);
+	public SearchPage(WebDriver driver,ExtentTest test) {
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 
@@ -67,8 +70,9 @@ public class SearchPage extends BasePage {
 		return countryName;
 	}
 
-	public void getWikiURL() {
-		driver.get(PropUtils.getPropValue(configProp, "wikiURL"));
+	public void wikiURL() {
+	  getURL(PropUtils.getPropValue(configProp, "wikiURL"));
+		
 	}
 
 	public void searchMovieInWiki(String movieName) {

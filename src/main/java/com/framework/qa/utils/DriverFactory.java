@@ -1,6 +1,7 @@
 package com.framework.qa.utils;
 
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -10,7 +11,6 @@ public class DriverFactory {
 	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
 
 	public WebDriver initialiseDriver(String browser) {
-
 		System.out.println("Browser Name:" + browser);
 		if (browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();

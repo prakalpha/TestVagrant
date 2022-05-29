@@ -1,25 +1,37 @@
-package com.framework.qa.basepage;
+package com.framework.qa.basePage;
 
 import java.util.NoSuchElementException;
-
-import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.framework.qa.baseTest.BaseTest;
 
-public class BasePage extends BaseTest {
-	final static Logger logger = Logger.getLogger(BasePage.class);
 
-	public BasePage(WebDriver driver) {
-		this.driver = driver;
+public class BasePage extends BaseTest {
+	public BasePage(WebDriver driver,ExtentTest test) {
+		BaseTest.test = test;
+	}
+
+	public void logInfo(String msg) {
+		test.info(MarkupHelper.createLabel(msg, ExtentColor.BLUE));
+	}
+
+	public void logFail(String msg) {
+		test.fail(MarkupHelper.createLabel(msg, ExtentColor.RED));
+		Assert.assertFalse(true, msg);
+	}
+
+	public void logPass(String msg) {
+		test.pass(MarkupHelper.createLabel(msg, ExtentColor.GREEN));
 	}
 
 	public void waitUntilElementDisplayed(final WebElement webElement) {
@@ -48,9 +60,9 @@ public class BasePage extends BaseTest {
 
 			WebDriverWait wait = new WebDriverWait(driver, timeOut);
 			isElementClickable = wait.until(ExpectedConditions.elementToBeClickable(element));
-			logger.error("element present");
+			logInfo("element present");
 		} catch (Exception e) {
-			logger.error(" Exception in the wait for 10 seconds for the  Element To Appear" + e);
+			logInfo(" Exception in the wait for 10 seconds for the  Element To Appear" + e);
 		}
 
 		return isElementClickable.isDisplayed();
@@ -61,18 +73,27 @@ public class BasePage extends BaseTest {
 			if (locator != null) {
 				waitUntilElementDisplayed(locator);
 				if (locator.isDisplayed()) {
-					logger.info(message + " is Displayed");
+					logPass(message + " is Displayed");
 				} else {
-					logger.error(message + " is Not Displayed");
+					logFail(message + " is Not Displayed");
 				}
 			}
 
 			else {
-				logger.info("Locator is Null");
+				logInfo("Locator is Null");
 			}
 		} catch (Exception ex) {
-			logger.error(ex.getMessage());
+			logFail(ex.getMessage());
 		}
+	}
+
+	public void sleep(int seconds) {
+		try {
+			Thread.sleep(seconds * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public void isDisplayedThenClick(WebElement locator, String message) {
@@ -80,12 +101,12 @@ public class BasePage extends BaseTest {
 			waitForElementTobeClickable(locator, 5);
 			if (locator.isDisplayed()) {
 				locator.click();
-				logger.info(message + " id Displayed and Clicked on it.");
+				logPass(message + " id Displayed and Clicked on it.");
 			} else {
-				logger.error(message + " is Not Displayed");
+				logFail(message + " is Not Displayed");
 			}
 		} catch (Exception ex) {
-			logger.error(ex.getMessage());
+			logFail(ex.getMessage());
 		}
 	}
 
@@ -97,7 +118,7 @@ public class BasePage extends BaseTest {
 			locator.click();
 			locator.sendKeys(sendText);
 		} catch (Exception ex) {
-			logger.error(ex.getMessage());
+			logFail(ex.getMessage());
 		}
 	}
 
@@ -116,11 +137,11 @@ public class BasePage extends BaseTest {
 			}
 			return text;
 		} catch (Exception ex) {
-			logger.error(ex.getMessage());
+			logFail(ex.getMessage());
 			return null;
 		}
 	}
-
+	
 	public void waitForPageLoad(WebDriver driver) {
 		ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
@@ -135,10 +156,15 @@ public class BasePage extends BaseTest {
 		waitForPageLoad(driver);
 		String pageTitle = driver.getTitle();
 		if (pageTitle.equals(title)) {
-			logger.info("Expected Title is displayed");
+			logPass("Expected Title is displayed");
 		} else {
-			logger.error("Expected title Page is not displayed");
+			logFail("Expected title Page is not displayed");
 		}
+	}
+	
+	public void getURL(String url) {
+		waitForPageLoad(driver);
+		driver.get(url);
 	}
 
 	public void MouseHover(WebElement locator) {
@@ -150,8 +176,7 @@ public class BasePage extends BaseTest {
 			Actions act = new Actions(driver);
 			act.moveToElement(locator).build().perform();
 		} catch (Exception ex) {
-			logger.error(ex.getMessage());
+			logFail(ex.getMessage());
 		}
 	}
-
 }

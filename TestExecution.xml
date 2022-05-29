@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-  <suite name="TestExecution" preserve-order="true" >
- <test name="Test Demo">
-    <classes>
-     	<class name="com.framework.qa.testcases.ValidateSearchPageTestCases"/> 
-    </classes>
-  </test>
-</suite>
