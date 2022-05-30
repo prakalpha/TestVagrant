@@ -118,8 +118,8 @@ public class BaseTest {
 		driver = driverFactory.initialiseDriver(PropUtils.getPropValue(configProp, "browser"));
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get(PropUtils.getPropValue(configProp, "applicationURL"));
 	}
 

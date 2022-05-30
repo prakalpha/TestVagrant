@@ -1,5 +1,7 @@
 package com.framework.qa.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
@@ -19,8 +21,8 @@ public class SearchPage extends BasePage {
 	private WebElement searchResult;
 	@FindBy(xpath = "//h3[contains(text(),'Details')]")
 	private WebElement detailsHeaderText;
-	@FindBy(xpath = "//div[@data-testid='title-details-section']//li[@data-testid='title-details-releasedate']/descendant::a[2]")
-	private WebElement releaseData;
+	@FindBy(xpath = "//div[@data-testid='title-details-section']//li[@data-testid='title-details-releasedate']/descendant::ul//a")
+	private WebElement releaseDate;
 	@FindBy(xpath = "//div[@data-testid='title-details-section']//li[@data-testid='title-details-origin']/descendant::a")
 	private WebElement country;
 	@FindBy(xpath = "//input[@id='searchInput']")
@@ -48,7 +50,7 @@ public class SearchPage extends BasePage {
 
 	public String getIMDBReleaseDate() {
 		String movieReleaseDate;
-		movieReleaseDate = getText(releaseData);
+		movieReleaseDate = getText(releaseDate);
 		return movieReleaseDate;
 	}
 

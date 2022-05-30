@@ -148,7 +148,7 @@ public class BasePage extends BaseTest {
 				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
 			}
 		};
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 50);
 		wait.until(pageLoadCondition);
 	}
 
